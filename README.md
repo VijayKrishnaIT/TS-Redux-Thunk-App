@@ -1,44 +1,167 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## CRUD Operations
 
-## Available Scripts
+1.  Create MongoDB Atlas Database
 
-In the project directory, you can run:
+    - MongoDB is the NoSQL DataBase.
 
-### `yarn start`
+    - MongoDB Supports JSON.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    - MongoDB is the light weight DataBase.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    - As a "MongoDB" Developer we can perform CRUD Operations on JSON.
 
-### `yarn test`
+    - MongoDB follows the "mongodb" protocol.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    - by default MongoDB running on port no.27017
 
-### `yarn build`
+    - MongoDB follows the "client server" architecture.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2.  create the application and link to reducer and server.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    > create-react-app thunk-app --template typescript
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3.  switch to directory
 
-### `yarn eject`
+    > cd thunk-app
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4.  download the node modules
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    => express
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    => mongodb@2.2.32
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    => body-parser
 
-## Learn More
+    => cors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    - express module used to develop the rest apis
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+            GET
+            POST
+            PUT
+            DELETE
+
+    - "mongodb@2.2.32" module used to interact with the "mongodb" database.
+
+    - "body-parser" module used to read the "client data".
+
+    - "cors" module used to enable the ports communication.
+
+    > yarn add express mongodb@2.2.32 body-parser cors --save
+
+5.  develop the rest apis by using NodeJS
+
+---
+
+server
+fetch
+fetch.js
+insert
+insert.js
+update
+update.js
+delete
+delete.js
+server.js
+
+---
+
+    - "fetch.js" file ued to create the GET Request (get the data from employees collection)
+
+    - "insert.js" file used to create the POST Request  (insert the data into employees collection)
+
+    - "update.js" file used to create the PUT Request  (update the data present in "employees" collection)
+
+    - "delete.js" file used to create the DELETE Request  (delete the data from "employees" collection)
+
+    - "server.js" file used to collabrate the above modules.
+
+6.  test the rest apis by using Postman
+
+            => http://localhost:8080/fetch    (GET)
+
+            => http://localhost:8080/insert   (POST)
+
+            => http://localhost:8080/update   (PUT)
+
+            => http://localhost:8080/delete   (DELETE)
+
+## Integration of CRUD Operations to React Application
+
+1. create the react application
+
+> create-react-app thunk-app --template typescript
+
+2. switch to thunk-app
+
+> cd thunk-app
+
+3.  download the node modules.
+
+    => redux
+
+    => react-redux
+
+    => redux-thunk
+
+    => axios
+
+    => react-bootstrap
+
+    => bootstrap
+
+    - "redux" used to implement the "state management".
+
+    - "react-redux" used to integrate the "redux" to "react" application.
+
+    - "redux-thunk" used to separate and manage the actions.
+
+            Ex.
+                    FETCH
+                    INSERT
+                    UPDATE
+                    DELETE
+
+    - "axios" module used to make the rest api calls.
+
+    - "react-bootstrap" & "bootstrap" used to implement add the styles to the components.
+
+    > yarn add redux react-redux redux-thunk axios react-bootstrap bootstrap --save
+
+4.  add the react-bootstrap CDN'S to the index.html file
+
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+             crossorigin></script>
+     <link rel="stylesheet"
+           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+
+5.  create the actions
+
+---
+
+mern-app
+src
+actions
+actions.tsx
+
+---
+
+6. create the reducer
+
+---
+
+mern-app
+src
+reducer
+reducer.tsx
+
+---
+
+7. create the store,deploy the reducer and make the availability to App Component
+
+index.tsx
+
+8. create the App Component
+
+App.tsx
